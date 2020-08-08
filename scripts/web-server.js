@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static( rootPath + '/app'));
 
-const db = require('../app/config/db.config.js');
+const db = require('app/config/db.config.js');
 
 require('../app/controller/company.route.js')(app);
 require('../app/controller/user.route.js')(app);
