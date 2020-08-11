@@ -25,7 +25,7 @@ require('../app/controller/booking.route.js')(app);
 
 app.get('/', function(req, res) {
     // ejs render automatically looks in the views folder
-    res.sendFile(path.join( '../app' + '/Main.html'));
+    res.sendFile(path.join( 'webBooker/app/Main.html'));
 });
 
 // Create a Server
