@@ -27,7 +27,10 @@ require('../app/controller/booking.route.js')(app);
 var server = app.listen(8000, function () {
 
     var host = 'localhost';
-    var port = '8000';
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
 
-    console.log("App listening at http://%s:%s", host, port);
+   
 })
