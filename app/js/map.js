@@ -18,7 +18,6 @@ function initAutocomplete() {
     initMap();
 
 }
-
 function fillInAddressPickUp() {
 
     var place = autocompletePickUp.getPlace();
@@ -28,9 +27,17 @@ function fillInAddressPickUp() {
     } else {
         latPickUp = place.geometry.location.lat();
         lngPickUp = place.geometry.location.lng();
-        autocompletePickUpName = place.address_components[0].long_name + ', ' + place.address_components[1].long_name + ', ' + place.address_components[4].long_name;
+        if(place.address_components[4] == undefined) {
+            autocompletePickUpName = place.address_components[0].long_name;
+
+        }
+        else {
+            autocompletePickUpName = place.address_components[0].long_name + ', ' + place.address_components[1].long_name + ', ' + place.address_components[4].long_name;
+        }
+        console.log(autocompletePickUpName);
     }
-}
+    }
+
 
 function fillInAddressDestination() {
 
@@ -41,9 +48,17 @@ function fillInAddressDestination() {
     } else {
         latDestination = place.geometry.location.lat();
         lngDestination = place.geometry.location.lng();
-        autocompleteDestinationName = place.address_components[0].long_name + ', ' + place.address_components[1].long_name + ', ' + place.address_components[4].long_name;
-    }
+        if(place.address_components[4] == undefined) {
+            autocompleteDestinationName = place.address_components[0].long_name;
+
+        }
+        else {
+            autocompleteDestinationName = place.address_components[0].long_name + ', ' + place.address_components[1].long_name + ', ' + place.address_components[4].long_name;
+        }
+        console.log(autocompleteDestinationName);
+        }
 }
+
 
 function initMap() {
     var directionsService = new google.maps.DirectionsService();
