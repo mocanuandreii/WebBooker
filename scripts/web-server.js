@@ -23,6 +23,11 @@ require('../app/controller/carType.route.js')(app);
 require('../app/controller/price.route.js')(app);
 require('../app/controller/booking.route.js')(app);
 
+app.get('/', function(req, res) {
+    // ejs render automatically looks in the views folder
+    res.sendFile(path.join(__dirname + '/Main.html'));
+});
+
 // Create a Server
 var server = app.listen(8000, function () {
 
