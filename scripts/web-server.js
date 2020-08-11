@@ -19,7 +19,7 @@ require('../app/controller/user.route.js')(app);
 require('../app/controller/account.route.js')(app);
 require('../app/controller/driverStatus.route.js')(app);
 require('../app/controller/voucher.route.js')(app);
-require('../app/controller/cartype.route.js')(app);
+require('../app/controller/carType.route.js')(app);
 require('../app/controller/price.route.js')(app);
 require('../app/controller/booking.route.js')(app);
 
