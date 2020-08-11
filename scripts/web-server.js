@@ -25,7 +25,7 @@ require('../app/controller/booking.route.js')(app);
 
 app.get('/', function(req, res) {
     // ejs render automatically looks in the views folder
-    res.sendFile(path.join( rootPath + '/app' + '/Main.html'));
+    res.sendFile(path.join( rootPath + '/app' + '/Login.html'));
 });
 
 // Create a Server
