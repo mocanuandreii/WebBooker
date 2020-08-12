@@ -82,6 +82,11 @@ function initMap() {
             calculateAndDisplayRoute(directionsService, directionsRenderer);
         }
     };
+    document.getElementById('autocompletePickUp').addEventListener("change", () =>
+        setTimeout(onChangeHandler, 300));
+    document.getElementById('autocompleteDestination').addEventListener("change", () =>
+        setTimeout(onChangeHandler, 300));
+
 }
 
 function addMarker(lat,lng,name,color){
