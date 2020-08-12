@@ -24,7 +24,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Rezervari</title>
+    <title>Bookings</title>
 
 </head>
 <body onload="initAutocomplete()">
@@ -46,16 +46,16 @@
     <div class="wrapper fadeInDown" ng-app="mainApp" ng-controller="mainCtrl">
         <div class="row">
             <div class="col-md-6">
-                <label for="passengerNumber"><p>Numar Pasageri</p></label>
-                <input type="number" id="passengerNumber" placeholder="Introduceti numarul de pasageri..." type="text"
+                <label for="passengerNumber"><p>Passengers number</p></label>
+                <input type="number" id="passengerNumber" placeholder="Insert passengers number..." type="text"
                        ng-change="updateCarTypeSelect()" ng-model="passengerNumber"/>
             </div>
 
             <div class="col-md-6">
-                <label for="selectCard"><p>Selecteaza vehicul</p></label>
+                <label for="selectCard"><p>Select car</p></label>
                 <select class="selectVehicle" id="selectCard" name="cars" type="text" ng-model="cars">
                     <option ng-repeat="x in carTypes track by $index" value="{{x.id_type}}"
-                            ng-if="x.seats_number > passengerNumber">{{x.type}} - {{x.seats_number}} locuri
+                            ng-if="x.seats_number > passengerNumber">{{x.type}} - {{x.seats_number}} seats
                     </option>
                 </select>
             </div>
@@ -64,13 +64,13 @@
 
         <div class="row">
             <div class="col-md-6">
-                <label for="autocompletePickUp"><p>Adresa ridicare</p></label>
-                <input id="autocompletePickUp" placeholder="Introduceti adresa ridicare..." type="text"
+                <label for="autocompletePickUp"><p>Pick up</p></label>
+                <input id="autocompletePickUp" placeholder="Insert pick-up address..." type="text"
                        ng-model="autocompletePickUp.text"/>
             </div>
             <div class="col-md-6">
-                <label for="autocompleteDestination"><p>Adresa destinatie</p></label>
-                <input id="autocompleteDestination" placeholder="Introduceti adresa destinatiei..." type="text"
+                <label for="autocompleteDestination"><p>Destination</p></label>
+                <input id="autocompleteDestination" placeholder="Insert destination..." type="text"
                        ng-model="autocompleteDestination.text"/>
             </div>
         </div>
@@ -83,7 +83,7 @@
             </div>
 
             <div class="col-md-6">
-                <label for="selectCard"><p>Selecteaza tip plata</p></label>
+                <label for="selectCard"><p>Select payment</p></label>
                 <div class="cars-container">
                     <div class="select-container">
                         <select class="selectCard" id="selectCard" name="selectCard" type="text" ng-model="selectCard">
@@ -101,7 +101,7 @@
                     <div class="button-container">
                         <button id="buttonSend" class="button" type="button" ng-click="calculate()"
                                 ng-disabled="!selectCard || !passengerNumber || !cars || !autocompletePickUp.text || !autocompleteDestination.text">
-                            Calculeaza
+                            Calculate
                         </button>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
         <div class="containerMid">
             <button id="buttonSend" class="button" type="button" ng-click="insertBooking()"
                     ng-disabled="!distanceH || !selectCard || !passengerNumber || !cars || !autocompletePickUp.text || !autocompleteDestination.text">
-                Inregistreaza Booking
+                AddBooking
             </button>
         </div>
         <div ng-controller="driverCtrl"></div>
