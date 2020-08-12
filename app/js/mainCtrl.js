@@ -45,8 +45,8 @@ var mainApp = angular.module('mainApp', ['ngStorage'])
             $scope.route = data.data.records;
 
             for (var i in $scope.route) {
-                $scope.distanceH = "Distanta: " + $scope.route[i].details.distance/1000 + " km.";
-                $scope.durationH = "Timp calatorie: " + $scope.route[i].details.duration / 60 + " minute.";
+                $scope.distanceH = "Distance: " + $scope.route[i].details.distance/1000 + " km.";
+                $scope.durationH = "Duration: " + $scope.route[i].details.duration / 60 + " minutes.";
 
                 $sessionStorage.distance = $scope.route[i].details.distance;
                 $sessionStorage.duration = $scope.route[i].details.duration;
@@ -106,7 +106,7 @@ var mainApp = angular.module('mainApp', ['ngStorage'])
 
             }).then(function (data) {
 
-                $scope.priceH = "Pret: " + data.data.records.total_price + " $.";
+                $scope.priceH = "Price: " + data.data.records.total_price/100 + " $.";
                 $sessionStorage.price = data.data.records.total_price;
 
             });
