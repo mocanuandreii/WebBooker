@@ -138,10 +138,10 @@ function computeTotalDistance(result) {
         total += myroute.legs[i].distance.value;
     }
 
-    document.getElementById("latPickUp").innerHTML = "Latitudine Ridicare: " + latPickUp;
-    document.getElementById("lngPickUp").innerHTML = "Longitudine Ridicare: " + lngPickUp;
-    document.getElementById("latDestination").innerHTML = "Latitudine Destinatie: " + latDestination;
-    document.getElementById("lngDestination").innerHTML = "Longitudine Destinatie: " + lngDestination;
+    document.getElementById("latPickUp").innerHTML = "Lat Pick-up: " + latPickUp;
+    document.getElementById("lngPickUp").innerHTML = "Lng Pick-up: " + lngPickUp;
+    document.getElementById("latDestination").innerHTML = "Lat Destination: " + latDestination;
+    document.getElementById("lngDestination").innerHTML = "Lng Destination: " + lngDestination;
 
 }
 
