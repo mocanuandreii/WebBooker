@@ -61,6 +61,7 @@ function fillInAddressDestination() {
 
 
 function initMap() {
+    var ok = 0;
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
      map = new google.maps.Map(document.getElementById('map'), {
@@ -70,13 +71,17 @@ function initMap() {
     directionsRenderer.setMap(map);
 
     var onChangeHandler = function () {
-        calculateAndDisplayRoute(directionsService, directionsRenderer);
+        if(document.getElementById('autocompletePickUp').value != '') {
+            ++ok;
+        }
+        if(document.getElementById('autocompleteDestination').value != '') {
+            ++ok;
+        }
+
+        if(ok >= 3) {
+             calculateAndDisplayRoute(directionsService, directionsRenderer);
+        }
     };
-
-    document.getElementById('autocompleteDestination').addEventListener("change", () =>
-        setTimeout(onChangeHandler, 300));
-
-}
 
 function addMarker(lat,lng,name,color){
     let url = "http://maps.google.com/mapfiles/ms/icons/";
