@@ -64,24 +64,25 @@ function initMap() {
     var ok = 0;
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer();
-     map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         zoom: 6,
         center: {lat: 45.943161, lng: 24.96676}
     });
     directionsRenderer.setMap(map);
 
     var onChangeHandler = function () {
-        if(document.getElementById('autocompletePickUp').value != '') {
+        if (document.getElementById('autocompletePickUp').value != '') {
             ++ok;
         }
-        if(document.getElementById('autocompleteDestination').value != '') {
+        if (document.getElementById('autocompleteDestination').value != '') {
             ++ok;
         }
 
-        if(ok >= 3) {
-             calculateAndDisplayRoute(directionsService, directionsRenderer);
+        if (ok >= 3) {
+            calculateAndDisplayRoute(directionsService, directionsRenderer);
         }
     };
+}
 
 function addMarker(lat,lng,name,color){
     let url = "http://maps.google.com/mapfiles/ms/icons/";
