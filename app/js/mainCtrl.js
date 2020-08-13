@@ -2,7 +2,9 @@ var mainApp = angular.module('mainApp', ['ngStorage'])
 
     mainApp.controller('mainCtrl' , function ($scope, $http, $sessionStorage) {
 
+
     $scope.updateCarTypeSelect = function () {
+
         $http({
             method: 'GET',
             url: 'https://api-test.insoftd.com/v1/operator/car_type?q=[{%22key%22:%22CarType.enabled%22,%22value%22:1,%22op%22:%22=%22}]&order=(CarType.rank%20DESC)',
@@ -109,11 +111,24 @@ var mainApp = angular.module('mainApp', ['ngStorage'])
                 $scope.priceH = "Price: " + data.data.records.total_price/50 + " $.";
                 $sessionStorage.price = data.data.records.total_price;
 
+
+                $scope.booking = [{
+                        pickup: autocompletePickUpName,
+                        destination: autocompleteDestinationName,
+                        payment_method:$scope.selectCard,
+                        pickup_date: $scope.datetime.toDateString(),
+                        priceD: $sessionStorage.price,
+                        distanceD: $sessionStorage.distance,
+                },
+
+                ];
             });
         });
     }
 
     $scope.insertBooking = function () {
+
+
         $http({
             method: 'POST',
             url: 'https://api-test.insoftd.com/v1/operator/booking',
@@ -197,10 +212,12 @@ var mainApp = angular.module('mainApp', ['ngStorage'])
             }
 
         }).then(function (data) {
-     alert(data);
+
+
 
         });
     }
+
 });
 
 mainApp.service('driverService', ['driverSocket', function (driverSocket) {
@@ -219,5 +236,9 @@ mainApp.controller('driverCtrl', ['$scope', 'driverService', function ($scope, d
     driverService.start();
 
 }]);
+
+
+
+
 
 
