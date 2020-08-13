@@ -51,7 +51,7 @@ ul {
     width: 20%;
 }
 
-input[type=text], input[type=password], [type = email], [type = phonenumber], [type = number] {
+input[type=text], input[type=password], [type = email], [type = phonenumber], [type = number], [type = datetime-local] {
     width: 100%;
     padding: 12px 20px;
     margin: 0px 0;
@@ -84,6 +84,7 @@ input[type=text], input[type=password], [type = email], [type = phonenumber], [t
 #buttonSend {
     color: #fafafa;
     font-family: Roboto;
+    margin: -24px 0;
     float: right;
 }
 #buttonChange {
@@ -150,7 +151,7 @@ select {
 
 .selectCard {
     padding: 9.5px 20px;
-    margin: 0px 0;
+    margin: -7px 0;
     border-radius: 5px;
     font-size: 15px;
     width: 100%;
