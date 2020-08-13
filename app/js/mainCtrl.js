@@ -1,7 +1,6 @@
-var mainApp = angular.module('mainApp', ['ngStorage','ui.bootstrap'])
+var mainApp = angular.module('mainApp', ['ngStorage'])
 
     mainApp.controller('mainCtrl' , function ($scope, $http, $sessionStorage) {
-        $scope.oneAtATime = '125';
 
     $scope.updateCarTypeSelect = function () {
         $http({
