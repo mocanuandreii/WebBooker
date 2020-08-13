@@ -14,12 +14,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
 
-
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="/js/eventsCtrl.js"></script>
     <script src="/js/mainCtrl.js"></script>
     <script src="/js/driverSocket.js"></script>
+
 
     <script src="js/map.js"></script>
     <link rel="stylesheet" href="/css/app.css"/>
@@ -135,14 +137,25 @@
         </div>
 
         <div class="containerMid">
-            <button id="buttonSend" class="button" type="button" ng-click="insertBooking()"
+            <button id="buttonAdd" class="button" type="button" ng-click="insertBooking()"
                     ng-disabled="!distanceH || !selectCard || !passengerNumber || !cars || !autocompletePickUp.text || !autocompleteDestination.text">
                 AddBooking
             </button>
         </div>
         <div ng-controller="driverCtrl"></div>
 
+        <div class="divBookings" ng-repeat="x in booking">
+            <h1>Booking</h1>
+            <h2>From: {{x.pickup}}</h2>
+            <h2>To: {{x.destination}}</h2>
+            <h2>Payment Method: {{x.payment_method}}</h2>
+            <h2>Pick-up Date: {{x.pickup_date}}</h2>
+            <h2>Price: {{x.priceD}}$</h2>
+            <h2>Distance: {{x.distanceD/100}}km</h2>
+        </div>
+
     </div>
+
 
 </form>
 
