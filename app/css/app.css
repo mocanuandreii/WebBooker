@@ -87,6 +87,12 @@ input[type=text], input[type=password], [type = email], [type = phonenumber], [t
     margin: -24px 0;
     float: right;
 }
+#buttonAdd {
+    color: #fafafa;
+    font-family: Roboto;
+    margin: auto;
+    float: right;
+}
 #buttonChange {
     color: #fafafa;
     font-family: Roboto;
@@ -218,7 +224,7 @@ li a:hover {
 }
 
 .divBookings {
-    width: 25%;
+    width: 40%;
     border: 5px red;
     text-align: center;
     border: 2px solid darkgreen;
@@ -336,5 +342,6 @@ input[type=profile] {
     border-radius: 5px;
     text-align: center;
 }
+
 
 
