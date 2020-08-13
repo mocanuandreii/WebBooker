@@ -1,8 +1,8 @@
-var mainApp = angular.module('mainApp', ['ngStorage'])
+var mainApp = angular.module('mainApp', ['ngStorage','ui.bootstrap'])
 
     mainApp.controller('mainCtrl' , function ($scope, $http, $sessionStorage) {
-    $scope.carTypes = {
-    }
+        $scope.oneAtATime = '125';
+
     $scope.updateCarTypeSelect = function () {
         $http({
             method: 'GET',
@@ -43,6 +43,7 @@ var mainApp = angular.module('mainApp', ['ngStorage'])
 
         }).then(function (data) {
             $scope.route = data.data.records;
+
 
             for (var i in $scope.route) {
                 $scope.distanceH = "Distance: " + $scope.route[i].details.distance/1000 + " km.";
@@ -106,7 +107,7 @@ var mainApp = angular.module('mainApp', ['ngStorage'])
 
             }).then(function (data) {
 
-                $scope.priceH = "Price: " + data.data.records.total_price/100 + " $.";
+                $scope.priceH = "Price: " + data.data.records.total_price/50 + " $.";
                 $sessionStorage.price = data.data.records.total_price;
 
             });
@@ -139,7 +140,7 @@ var mainApp = angular.module('mainApp', ['ngStorage'])
                         "passengers_number": $scope.passengerNumber,
                         "pickup_address": autocompletePickUpName,
                         "dropoff_address": autocompleteDestinationName,
-                        "pickup_time": "2016-7-14 15:14:0",
+                        "pickup_time": $scope.datetime,
                         "pickup_lat": latPickUp,
                         "pickup_lng": lngPickUp,
                         "dropoff_lat": latDestination,
@@ -197,8 +198,8 @@ var mainApp = angular.module('mainApp', ['ngStorage'])
             }
 
         }).then(function (data) {
+     alert(data);
 
-            alert(data.data.records[0].result);
         });
     }
 });
@@ -219,3 +220,5 @@ mainApp.controller('driverCtrl', ['$scope', 'driverService', function ($scope, d
     driverService.start();
 
 }]);
+
+
